@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Options Pricing Research - Archuthan Mohanathasan - Quant Portfolio</title>
+
+    <meta name="description" content="A research project on Monte Carlo simulation, variance reduction techniques (antithetic variates, control variates), and Greek sensitivity analysis for options pricing.">
+
+    <link rel="icon" href="/favicon.png" type="image/png">
+
+    <meta property="og:title" content="Options Pricing & Risk Analysis - Archuthan Mohanathasan">
+    <meta property="og:description" content="A research project on Monte Carlo simulation, variance reduction, and Greek sensitivity analysis.">
+    <meta property="og:type" content="website">
+    
+    <meta property="og:url" content="https://www.your-domain.com/options-pricing-research.html">
+    <meta property="og:image" content="https://www.your-domain.com/images/options-preview.jpg">
+
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="container">
+        <a href="index.html" class="nav-logo">Archuthan Mohanathasan</a>
+        <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="nav-contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <section class="project-page-header">
+            <h1>Options Pricing and Risk Analysis: A Monte Carlo-Based Evaluation</h1>
+        </section>
+    
+        <section class="project-summary">
+            <ul>
+                <li>
+                    <strong>ROLE</strong>
+                    <span>Computer Science Undergraduate</span>
+                </li>
+                <li>
+                    <strong>METHODS</strong>
+                    <span>Monte Carlo, Black-Scholes, Variance Reduction</span>
+                </li>
+                <li>
+                    <strong>TOOLS</strong>
+                    <span>Python, NumPy, Matplotlib, SciPy</span>
+                </li>
+                <li>
+                    <strong>REPOSITORY</strong>
+                    <a href="https://github.com/archuthanm/options-pricing-risk-analysis" target="_blank">
+                        View on GitHub
+                    </a>
+                </li>
+            </ul>
+        </section>
+    
+        <hr class="project-divider">
+    
+        <section class="project-body project-layout-split">
+    
+            <div class="project-text-content">
+                <h2>1. The Objective</h2>
+                <p>
+                    This research presents a comprehensive evaluation of <strong>Monte Carlo simulation methods</strong> for the pricing of European Options. The primary goal was to explore and quantify the efficiency gains from various variance reduction techniques and to assess accuracy by comparing the pricing, performance, and Greeks against the analytical <strong>Black-Scholes model</strong>.
+                </p>
+    
+                <h2>2. Methodology: Pricing Models</h2>
+                <p>
+                    The project first implemented the analytical Black-Scholes-Merton model to provide a baseline price and analytical Greeks. The core of the work involved building a vectorized Monte Carlo engine based on the <strong>discretised geometric Brownian motion</strong> process to simulate asset price paths and derive the discounted expected payoffs.
+                </p>
+                
+                <h3>Advanced Techniques: Variance Reduction</h3>
+                <p>
+                    To address the high variance and slow convergence inherent in Monte Carlo methods, several variance reduction techniques were implemented and analyzed:
+                </p>
+                <ul>
+                    <li><strong>Antithetic Variates:</strong> Employs negatively correlated paths to decrease the variance of payoffs.</li>
+                    <li><strong>Delta Control Variates:</strong> Utilizes the delta derived from the Black-Scholes model as a control variate.</li>
+                    <li><strong>Gamma Control Variates:</strong> Utilizes information about the option's curvature to further reduce variance.</li>
+                </ul>
+    
+                <h2>3. Analysis: Greeks and Model Efficiency</h2>
+                <p>
+                    The study also involved calculating the Option Greeks (Delta, Gamma, Vega, etc.) using pathwise derivative estimators and finite difference methods. These were validated against the analytical Greeks from the Black-Scholes model to ensure accuracy. Efficiency was measured by comparing standard error and computation time, proving that combined variance reduction techniques are vastly superior.
+                </p>
+            </div>
+    
+            <div class="project-sidebar">
+                <hr> 
+                
+                <h2>4. View The Full Report</h2>
+                <p>
+                    The complete research paper, including all mathematical derivations, is embedded below.
+                </p>
+    
+                <div class="pdf-viewer-container">
+                    <iframe src="Options Pricing and Risk Analysis Project.pdf" title="Options Pricing Research PDF">
+                        Your browser does not support embedded PDFs. 
+                        <a href="Options Pricing and Risk Analysis Project.pdf" target="_blank">
+                            Download the report instead.
+                        </a>
+                    </iframe>
+                </div>
+    
+                <div class="center-text" style="margin-top: 2rem;">
+                    <a href="Options Pricing and Risk Analysis Project.pdf" class="cta-button" target="_blank">Download PDF Report</a>
+                </div>
+            </div>
+    
+        </section> 
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/archuthanm" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/archuthan-mohanathasan-63187424b/" target="_blank">LinkedIn</a>
+                <a href="resume.pdf" target="_blank">Resume (PDF)</a>
+            </div>
+            <p>&copy; 2025 Archuthan Mohanathasan. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

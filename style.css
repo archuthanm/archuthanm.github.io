@@ -1,0 +1,775 @@
+/* --- 1. GLOBAL & ROOT VARIABLES --- */
+:root {
+    /* Colors */
+    --background: #111111; /* Very dark grey, not pure black */
+    --surface: #1e1e1e;   /* For cards and surfaces */
+    --surface-border: #2c2c2c;
+    --text-primary: #f0f0f0; /* Off-white for readability */
+    --text-secondary: #aaaaaa;
+    --accent: #00f0a0;    /* A sharp, "finance/tech" green */
+    --accent-dark: #00c080;
+
+    /* Typography */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'Fira Code', 'Courier New', monospace;
+
+    /* Spacing */
+    --container-width: 1100px;
+}
+
+/* --- 2. BASE & RESET STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    line-height: 1.6;
+}
+
+/*
+ * THIS IS THE FIX:
+ * The 'display: flex' properties were removed from this general .container rule.
+ * This rule should ONLY control sizing and spacing, not layout.
+*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2 3rem;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-dark);
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+/* --- 3. NAVIGATION --- */
+/* This rule correctly applies flex layout to ONLY the nav */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.nav-logo:hover {
+    color: var(--text-primary);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-left: auto; /* <-- ADD THIS LINE */
+    padding-right: 3px
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+nav ul li a.nav-contact {
+    background-color: var(--accent);
+    color: var(--background);
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    font-weight: 700;
+}
+nav ul li a.nav-contact:hover {
+    background-color: var(--accent-dark);
+    color: var(--background);
+}
+
+
+
+/* --- 4. HERO SECTION --- */
+.hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem; /* Large, bold intro */
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+}
+
+.hero .accent {
+    color: var(--accent);
+}
+
+.hero-subhead {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 650px;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--background);
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--accent-dark);
+    color: var(--background);
+    transform: translateY(-3px); /* Subtle lift effect */
+}
+
+
+/* --- 5. PROJECTS SECTION --- */
+#projects {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+#projects h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--surface);
+    border: 1px solid var(--surface-border);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.project-tag {
+    display: block;
+    font-family: var(--font-mono); /* Monospace for "code" feel */
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.project-card a {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* --- 6. FOOTER --- */
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-top: 1px solid var(--surface-border);
+    margin-top: 4rem;
+}
+
+/* This rule correctly applies flex layout to ONLY the footer content */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    margin-right: 1.5rem;
+    font-weight: 500;
+}
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+footer p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* --- 7. CONTACT PAGE STYLES --- */
+.contact-header {
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+}
+
+.contact-header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.contact-header p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-form {
+    max-width: 700px; /* Limits the width of the form */
+    margin: 0 auto 6rem auto; /* Centers the form */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    
+    background-color: var(--surface);
+    color: var(--text-primary);
+    
+    border: 1px solid var(--surface-border);
+    border-radius: 5px;
+    
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent); /* Highlights with accent color */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allows user to resize height */
+    min-height: 120px;
+}
+
+.form-button {
+    /* Re-using styles from .cta-button but making it 100% width */
+    display: block;
+    width: 100%;
+    background: var(--accent);
+    color: var(--background);
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    border: none; /* Buttons have borders by default */
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.form-button:hover {
+    background: var(--accent-dark);
+    color: var(--background);
+    transform: translateY(-3px);
+}
+
+
+/* --- 8. PROJECT PAGE STYLES --- */
+
+.project-page-header {
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+}
+
+.project-page-header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--text-primary);
+}
+
+.project-summary {
+    background-color: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 8px;
+    max-width: 900px; /* Widen slightly for 3 columns */
+    margin: 0 auto 3rem auto;
+    padding: 2rem;
+}
+
+.project-summary ul {
+    list-style: none;
+    display: grid; /* Use Grid instead of Flex */
+    grid-template-columns: 1fr 1fr 1fr; /* Create 3 equal columns */
+    gap: 2rem; /* Space between columns */
+    text-align: left; /* Align text left */
+}
+
+.project-summary li {
+    font-size: 1rem; /* Slightly smaller for balance */
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.project-summary li strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem; /* More space */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.project-body {
+    max-width: 800px; /* Standard readable width */
+    margin: 0 auto 6rem auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.project-body h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-body h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.project-body ul {
+    list-style-position: inside;
+    padding-left: 1rem;
+}
+
+.project-body li {
+    margin-bottom: 0.5rem;
+}
+
+/* PDF Viewer Styles */
+.pdf-viewer-container {
+    position: relative;
+    width: 100%;
+    /* A4-ish aspect ratio (210 / 297 = 0.707) */
+    /* 1 / 0.707 = 1.414. So padding-bottom is 141.4% */
+    padding-bottom: 141.4%;
+    height: 0;
+    overflow: hidden;
+    border: 1px solid var(--surface-border);
+    border-radius: 5px;
+    background: #fff; /* White background for the PDF */
+}
+
+.pdf-viewer-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Utility Class */
+.center-text {
+    text-align: center;
+}
+
+
+/* --- 9. NEW LAYOUT STYLES --- */
+
+/* Styles the new <hr> we added */
+.project-divider {
+    max-width: 900px;
+    margin: 0 auto 3rem auto;
+    border: none;
+    height: 1px;
+    background-color: var(--surface-border);
+}
+
+/* Styles the <hr> inside the project body */
+.project-body hr {
+    border: none;
+    height: 1px;
+    background-color: var(--surface-border);
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+/* --- 9. ABOUT PAGE STYLES --- */
+
+.about-layout {
+    display: flex;
+    flex-wrap: wrap; /* Allows columns to stack on mobile */
+    gap: 4rem; /* Space between image and text */
+    max-width: 1000px; /* Slightly wider for a good text column */
+    margin: 0 auto 6rem auto;
+    align-items: flex-start; /* Aligns top of text with top of image */
+}
+
+.about-image-container {
+    flex: 1; /* Takes up 1 part of the space */
+    min-width: 250px; /* Ensures image doesn't get too squished */
+    max-width: 350px; /* Prevents image from being too large */
+    margin: 0 auto; /* Centers on mobile */
+}
+
+.about-profile-pic {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Matches your card style */
+    border: 1px solid var(--surface-border);
+}
+
+.about-text-container {
+    flex: 2; /* Takes up 2 parts of the space (wider) */
+    min-width: 300px; /* Ensures text has room to flow */
+}
+
+.about-text-container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.about-subhead {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--accent); /* Use accent color for the subtitle */
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.about-text-container p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.about-text-container h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.skills-list {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two-column grid for skills */
+    gap: 1rem;
+    font-size: 1.05rem;
+}
+
+.skills-list li {
+    background-color: var(--surface);
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--surface-border);
+}
+
+.skills-list li strong {
+    color: var(--text-primary);
+}
+
+/* --- 10. RESPONSIVE STYLES --- */
+
+/* For the new skills list */
+@media (max-width: 600px) {
+    .skills-list {
+        grid-template-columns: 1fr; /* Stack skills on small screens */
+    }
+}
+
+
+/* --- 10. NEW PROJECT PAGE SPLIT LAYOUT --- */
+
+/* 1. We override the old .project-body max-width 
+     to make the layout wider.
+*/
+.project-body.project-layout-split {
+    max-width: 1200px; /* Wider container for two columns */
+    display: grid;
+    /* Columns: 2 parts for text, 1 part for sidebar */
+    grid-template-columns: 1fr 1fr; 
+    align-items: start; /* Aligns columns to the top */
+    gap: 3rem; /* Space between the two columns */
+}
+
+/* 2. We give the text column its *own* max-width
+     to maintain readability.
+*/
+.project-text-content {
+    max-width: 75ch; /* 75 characters is ideal for reading */
+}
+
+/* 3. The sidebar just needs a little top padding 
+     to align the headings.
+*/
+.project-sidebar {
+    padding-top: 0.5rem;
+    /* On large screens, a "sticky" position is nice,
+       but let's keep it simple for now. */
+}
+
+/* 4. On mobile, we stack the columns back into one,
+     restoring the original (good) mobile layout.
+*/
+@media (max-width: 900px) {
+    .project-body.project-layout-split {
+        grid-template-columns: 1fr; /* Stack the columns */
+    }
+
+    .project-sidebar {
+        padding-top: 0;
+    }
+}
+
+/* --- 11. SKILLS TOOLKIT SECTION --- */
+.skills-section {
+    padding: 4rem 0;
+    /* FIX: I've removed the 'background-color: var(--surface);' line 
+      that was creating the grey box.
+    */
+    border-top: 1px solid var(--surface-border);
+    border-bottom: 1px solid var(--surface-border);
+}
+
+.skills-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.skills-subhead {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills-grid {
+    display: grid;
+    /* Create 3 equal columns on desktop */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.skill-category {
+    /* FIX: I've changed this from --background to --surface
+      to make the cards lighter than the page background.
+    */
+    background-color: var(--surface); 
+    border: 1px solid var(--surface-border);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease, border-color 0.3s ease; 
+}
+
+.skill-category:hover {
+    transform: translateY(-5px); 
+    border-color: var(--accent); 
+}
+
+.skill-category h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent); /* Use accent color for category titles */
+    border-bottom: 1px solid var(--surface-border);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-category li {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+/* Make skills stack on mobile */
+@media (max-width: 800px) {
+    .skills-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+}
+
+
+/* --- 12. ASPIRATIONS SECTION --- */
+.aspirations-section {
+    padding: 4rem 0;
+    /* This assumes your "Toolkit" section was --surface */
+    background-color: var(--background); 
+}
+
+.aspirations-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.aspirations-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.aspiration-card {
+    background-color: var(--surface);
+    border: 1px solid var(--surface-border);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    
+    /* THIS IS THE CHANGE:
+      Added 'border-color' to the transition.
+    */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.aspiration-card:hover {
+    transform: translateY(-5px);
+    /* THIS IS THE CHANGE:
+      Added 'border-color' hover effect.
+    */
+    border-color: var(--accent);
+}
+
+.aspiration-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.aspiration-card p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Responsive (Mobile) Layout */
+@media (max-width: 900px) {
+    .aspirations-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .aspirations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+/* --- 13. STICKY FOOTER LAYOUT --- */
+/* This code is correct and fixes the floating footer */
+
+/* 1. Make the body a flex container */
+body {
+    display: flex;
+    flex-direction: column; /* Stack nav, main, and footer */
+    min-height: 100vh; /* Be at least the full screen height */
+}
+
+/* 2. Tell the main content to "grow" */
+main {
+    /* This is the magic line: */
+    /* It tells <main> to take up all available 
+       empty space, pushing the footer down. */
+    flex-grow: 1;
+}
+
+/* --- 14. GOOGLE FORM STYLES --- */
+
+
