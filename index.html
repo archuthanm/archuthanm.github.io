@@ -97,15 +97,15 @@
 
     /* Staggered animation delays */
     .candles .candle:nth-child(1) { --delay: 0s; }
-    .candles .candle:nth-child(2) { --delay: 1.5s; }
-    .candles .candle:nth-child(3) { --delay: 3s; }
-    .candles .candle:nth-child(4) { --delay: 4.5s; }
-    .candles .candle:nth-child(5) { --delay: 6s; }
-    .candles .candle:nth-child(6) { --delay: 7.5s; }
-    .candles .candle:nth-child(7) { --delay: 9s; }
-    .candles .candle:nth-child(8) { --delay: 10.5s; }
-    .candles .candle:nth-child(9) { --delay: 12s; }
-    .candles .candle:nth-child(10){ --delay: 13.5s; }
+    .candles .candle:nth-child(2) { --delay: 1s; }
+    .candles .candle:nth-child(3) { --delay: 2s; }
+    .candles .candle:nth-child(4) { --delay: 3s; }
+    .candles .candle:nth-child(5) { --delay: 4s; }
+    .candles .candle:nth-child(6) { --delay: 5s; }
+    .candles .candle:nth-child(7) { --delay: 6s; }
+    .candles .candle:nth-child(8) { --delay: 7s; }
+    .candles .candle:nth-child(9) { --delay: 8s; }
+    .candles .candle:nth-child(10){ --delay: 9s; }
 
     @keyframes appearRise {
       0%   { opacity: 0; transform: translateY(20px) scaleY(0.6); }
@@ -142,7 +142,7 @@
     // Redirect logic (no change)
     setTimeout(() => {
       window.location.href = "home.html";
-    }, 15500);
+    }, 10000);
 
     // Positions the candles
     document.addEventListener("DOMContentLoaded", () => {
