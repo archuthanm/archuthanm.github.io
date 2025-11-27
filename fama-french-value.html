@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Fama-French Factor Replication - Archuthan Mohanathasan - Quant Portfolio</title>
+
+    <meta name="description" content="A quantitative research project to replicate and analyze the Fama-French 'Value' (HML) factor using Python, Pandas, and yfinance.">
+
+    <link rel="icon" href="/favicon.png" type="image/png">
+
+    <meta property="og:title" content="Fama-French 'Value' (HML) Factor Replication - Archuthan Mohanathasan">
+    <meta property="og:description" content="A project on portfolio construction and time series analysis to test the 'value premium' in the S&P 500.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.your-domain.com/fama-french-hml-project.html">
+    <meta property="og:image" content="https://www.your-domain.com/images/hml-factor-preview.jpg">
+
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="cursor"></div>
+    <nav class="container">
+        <a href="home.html" class="nav-logo">Archuthan Mohanathasan</a>
+        <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="nav-contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <section class="project-page-header">
+            <h1>Fama-French 'Value' (HML) Factor Replication</h1>
+        </section>
+    
+        <section class="project-summary">
+            <ul>
+                <li>
+                    <strong>ROLE</strong>
+                    <span>Computer Science Undergraduate</span>
+                </li>
+                <li>
+                    <strong>METHODS</strong>
+                    <span>Factor Investing, Portfolio Construction, Time Series Analysis</span>
+                </li>
+                <li>
+                    <strong>TOOLS</strong>
+                    <span>Python, Pandas, yfinance, Statsmodels, Matplotlib</span>
+                </li>
+                <li>
+                    <strong>REPOSITORY</strong>
+                    <a href="https://github.com/archuthanm/fama-french-hml-factor" target="_blank">
+                        View on GitHub
+                    </a>
+                </li>
+            </ul>
+        </section>
+    
+        <hr class="project-divider">
+    
+        <section class="project-body project-layout-split">
+    
+            <div class="project-text-content">
+                <h2>1. The Objective</h2>
+                <p>
+                    This project investigates one of the cornerstones of quantitative finance: the **"value premium"**. The primary goal was to replicate the <strong>'Value' (HML - High Minus Low) factor</strong> as defined by Eugene Fama and Kenneth French. The project involved sourcing and cleaning financial data, constructing value-based portfolios, and analyzing the historical performance of a long-short strategy.
+                </p>
+    
+                <h2>2. Methodology: Portfolio Construction</h2>
+                <p>
+                    The HML factor was constructed using the S&P 500 as the stock universe. The core methodology involved an annual portfolio rebalancing based on the <strong>Book-to-Market (B/M) ratio</strong>, the classic metric for "value".
+                </p>
+                
+                <p>
+                    The process, executed in a Python script, was as follows:
+                </p>
+                <ul>
+                    <li><strong>Data Sourcing:</strong> Acquired S&P 500 constituent lists and pulled annual `bookValue` and `marketCap` data for each company using the <strong>yfinance</strong> library.</li>
+                    <li><strong>Portfolio Sorting:</strong> At the start of each year, all stocks were sorted by their B/M ratio. They were then split into three portfolios: 'High' (top 30% B/M), 'Medium' (middle 40%), and 'Low' (bottom 30% B/M).</li>
+                    <li><strong>Factor Calculation:</strong> The monthly returns for the 'High' and 'Low' (equal-weighted) portfolios were calculated. The HML factor is the return of the zero-investment portfolio: <strong>Return(High) - Return(Low)</strong>.</li>
+                </ul>
+    
+                <h2>3. Analysis: Factor Performance</h2>
+                <p>
+                    The analysis focused on validating the historical persistence of the value premium. The cumulative returns of the HML factor were plotted to provide a visual test of its long-term performance.
+                </p>
+                <p>
+                    Key performance metrics were calculated, including the factor's annualized mean return, volatility, and <strong>Sharpe ratio</strong>. Finally, a <strong>Statsmodels</strong> OLS regression was used to measure the factor's statistical significance (alpha) and its beta exposure to the overall market, confirming its role as a distinct risk factor.
+                </p>
+            </div>
+    
+            <div class="project-sidebar">
+                <hr> 
+                
+                <h2>4. Key Result: HML Factor Performance</h2>
+                <p>
+                    The plot below shows the cumulative log returns of the replicated HML factor. This demonstrates the historical performance of the "value premium" as a long-short strategy.
+                </p>
+    
+                <div class="image-viewer-container">
+                    <img src="images/placeholder-hml-chart.png" alt="Cumulative Returns of the HML Factor">
+                    <figcaption>
+                        Fig 1: Cumulative returns of the HML (High Minus Low) factor portfolio.
+                    </figcaption>
+                </div>
+    
+                <div class="center-text" style="margin-top: 2rem;">
+                    <a href="https://github.com/archuthanm/fama-french-hml-factor" class="cta-button" target="_blank">View Notebook on GitHub</a>
+                </div>
+            </div>
+    
+        </section> 
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/archuthanm" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/archuthan-mohanathasan-63187424b/" target="_blank">LinkedIn</a>
+                <a href="resume.pdf" target="_blank">Resume (PDF)</a>
+            </div>
+            <p>&copy; 2025 Archuthan Mohanathasan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("mousemove", (e) => {
+          const cursor = document.getElementById("cursor");
+          cursor.style.left = e.clientX + "px";
+          cursor.style.top = e.clientY + "px";
+        });
+    </script>
+
+</body>
+</html>

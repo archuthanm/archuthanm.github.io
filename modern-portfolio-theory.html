@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Modern Portfolio Theory Optimization - Archuthan Mohanathasan - Quant Portfolio</title>
+
+    <meta name="description" content="A quantitative project implementing Markowitz's Modern Portfolio Theory (MPT) to build an efficient frontier and find the optimal risk-adjusted portfolio.">
+
+    <link rel="icon" href="/favicon.png" type="image/png">
+
+    <meta property="og:title" content="Modern Portfolio Theory Optimization - Archuthan Mohanathasan">
+    <meta property="og:description" content="An analysis of portfolio risk vs. return, implementing optimization to find the efficient frontier and maximum Sharpe ratio portfolio.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.your-domain.com/modern-portfolio-theory.html">
+    <meta property="og:image" content="https://www.your-domain.com/images/mpt-efficient-frontier-preview.jpg">
+
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="cursor"></div>
+    <nav class="container">
+        <a href="home.html" class="nav-logo">Archuthan Mohanathasan</a>
+        <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="nav-contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <section class="project-page-header">
+            <h1>Modern Portfolio Theory: Optimization & Risk Analysis</h1>
+        </section>
+    
+        <section class="project-summary">
+            <ul>
+                <li>
+                    <strong>ROLE</strong>
+                    <span>Computer Science Undergraduate</span>
+                </li>
+                <li>
+                    <strong>METHODS</strong>
+                    <span>Portfolio Optimization, Monte Carlo Simulation, Linear Algebra</span>
+                </li>
+                <li>
+                    <strong>TOOLS</strong>
+                    <span>Python, SciPy (Optimize), NumPy, Pandas, Matplotlib</span>
+                </li>
+                <li>
+                    <strong>REPOSITORY</strong>
+                    <a href="https://github.com/archuthanm/portfolio-optimization-mpt" target="_blank">
+                        View on GitHub
+                    </a>
+                </li>
+            </ul>
+        </section>
+    
+        <hr class="project-divider">
+    
+        <section class="project-body project-layout-split">
+    
+            <div class="project-text-content">
+                <h2>1. The Objective</h2>
+                <p>
+                    This project implements the foundational **Modern Portfolio Theory (MPT)**, developed by Harry Markowitz. The primary goal was to move beyond single-asset analysis and determine how to construct an "optimal" portfolio of multiple assets. The analysis focuses on quantifying the relationship between a portfolio's expected return and its risk (variance), ultimately identifying the set of portfolios known as the **"efficient frontier"**.
+                </p>
+    
+                <h2>2. Methodology: Simulation & Optimization</h2>
+                <p>
+                    The project was built in Python, leveraging NumPy for linear algebra and SciPy for numerical optimization. The methodology involved several steps using a basket of S&P 500 stocks:
+                </p>
+                
+                <ul>
+                    <li><strong>Data Sourcing:</strong> Pulled 5+ years of daily historical price data using the `yfinance` library.</li>
+                    <li><strong>Input Calculation:</strong> Calculated the annualized mean return for each asset and the full annualized **covariance matrix** for the portfolio. This matrix is critical as it captures how assets move *in relation to each other*.</li>
+                    <li><strong>Monte Carlo Simulation:</strong> Ran 50,000+ simulations, generating random portfolio weights for each. For each simulation, the overall portfolio return and volatility were calculated and stored.</li>
+                    <li><strong>Optimization:</strong> Used the <strong>`scipy.optimize`** module to solve for the two most critical portfolios: (1) The **Maximum Sharpe Ratio Portfolio** (optimal risk-adjusted return) and (2) The **Minimum Volatility Portfolio**.</li>
+                </ul>
+    
+                <h2>3. Analysis: The Efficient Frontier</h2>
+                <p>
+                    Plotting the results of the Monte Carlo simulation revealed the characteristic "Markowitz bullet" shape. The outer edge of this shape forms the **efficient frontier**, representing the set of portfolios that offer the highest possible return for any given level of risk.
+                </p>
+                <p>
+                    The analysis confirmed that any portfolio *not* on this frontier is sub-optimal, as a different combination of weights could achieve either a higher return for the same risk or the same return for lower risk. The findings highlight the powerful diversification benefits of combining uncorrelated assets.
+                </p>
+            </div>
+    
+            <div class="project-sidebar">
+                <hr> 
+                
+                <h2>4. Key Result: The Efficient Frontier</h2>
+                <p>
+                    The chart below visualizes the risk/return profile of 50,000 simulated portfolios. The "frontier" of optimal portfolios is marked, along with the calculated Max Sharpe and Min Volatility portfolios.
+                </p>
+    
+                <div class="image-viewer-container">
+                    <img src="images/placeholder-efficient-frontier.png" alt="Efficient Frontier plot from Monte Carlo simulation">
+                    <figcaption>
+                        Fig 1: Efficient Frontier for a 10-stock portfolio.
+                    </figcaption>
+                </div>
+    
+                <div class="center-text" style="margin-top: 2rem;">
+                    <a href="https://github.com/archuthanm/portfolio-optimization-mpt" class="cta-button" target="_blank">View Notebook on GitHub</a>
+                </div>
+            </div>
+    
+        </section> 
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/archuthanm" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/archuthan-mohanathasan-63187424b/" target="_blank">LinkedIn</a>
+                <a href="resume.pdf" target="_blank">Resume (PDF)</a>
+            </div>
+            <p>&copy; 2025 Archuthan Mohanathasan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("mousemove", (e) => {
+          const cursor = document.getElementById("cursor");
+          cursor.style.left = e.clientX + "px";
+          cursor.style.top = e.clientY + "px";
+        });
+    </script>
+
+</body>
+</html>

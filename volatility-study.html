@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Volatility Event Study: Earnings - Archuthan Mohanathasan - Quant Portfolio</title>
+
+    <meta name="description" content="A quantitative event study on the 'volatility crush' phenomenon surrounding corporate earnings announcements, using Python and Pandas.">
+
+    <link rel="icon" href="/favicon.png" type="image/png">
+
+    <meta property="og:title" content="Volatility Event Study: Earnings Announcements - Archuthan Mohanathasan">
+    <meta property="og:description" content="An analysis of realized volatility patterns before and after earnings reports to test the 'volatility crush'.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.your-domain.com/volatility-event-study.html">
+    <meta property="og:image" content="https://www.your-domain.com/images/volatility-event-study-preview.jpg">
+
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="cursor"></div>
+    <nav class="container">
+        <a href="home.html" class="nav-logo">Archuthan Mohanathasan</a>
+        <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="nav-contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <section class="project-page-header">
+            <h1>Volatility Event Study: Earnings Announcements</h1>
+        </section>
+    
+        <section class="project-summary">
+            <ul>
+                <li>
+                    <strong>ROLE</strong>
+                    <span>Computer Science Undergraduate</span>
+                </li>
+                <li>
+                    <strong>METHODS</strong>
+                    <span>Event Study, Time Series Analysis, Statistical Analysis</span>
+                </li>
+                <li>
+                    <strong>TOOLS</strong>
+                    <span>Python, Pandas, yfinance, Matplotlib, NumPy</span>
+                </li>
+                <li>
+                    <strong>REPOSITORY</strong>
+                    <a href="https://github.com/archuthanm/volatility-event-study" target="_blank">
+                        View on GitHub
+                    </a>
+                </li>
+            </ul>
+        </section>
+    
+        <hr class="project-divider">
+    
+        <section class="project-body project-layout-split">
+    
+            <div class="project-text-content">
+                <h2>1. The Objective</h2>
+                <p>
+                    This project investigates a well-known market anomaly: the <strong>"volatility crush"</strong> associated with corporate earnings announcements. The objective was to empirically test the hypothesis that <strong>realized volatility</strong> consistently rises before an earnings report (as anticipation and uncertainty build) and sharply collapses immediately after (as the new information is released and uncertainty is resolved).
+                </p>
+    
+                <h2>2. Methodology: Event Study Design</h2>
+                <p>
+                    An event study was designed using a sample of high-volume tech stocks (e.g., AAPL, MSFT, GOOG) from the S&P 500. The methodology focused on isolating the volatility impact of the earnings event itself.
+                </p>
+                
+                <p>
+                    The process, executed in a Python/Jupyter Notebook, was as follows:
+                </p>
+                <ul>
+                    <li><strong>Data Sourcing:</strong> Historical daily price data was acquired via the <strong>yfinance</strong> library. Quarterly earnings announcement dates for the past 5 years were collected.</li>
+                    <li><strong>Volatility Calculation:</strong> A <strong>20-day rolling realized volatility</strong> (annualized standard deviation of log returns) was calculated for each stock to create a time series.</li>
+                    <li><strong>Event Centering:</strong> For each earnings event, a time window from -30 to +30 trading days was created (where Day 0 is the earnings date). The volatility data for each event was "centered" on this window.</li>
+                    <li><strong>Aggregation:</strong> Finally, the volatility series from all events and all stocks were averaged using NumPy to create a single, clear plot showing the "average" volatility behavior around an earnings announcement.</li>
+                </ul>
+    
+                <h2>3. Analysis: The 'Volatility Crush' Effect</h2>
+                <p>
+                    The primary analysis involved visualizing the aggregated event data. The results, as shown in the chart, provide clear quantitative evidence for the 'volatility crush' phenomenon.
+                </p>
+                <p>
+                    The plot demonstrates a clear run-up in volatility in the ~15 days preceding the announcement, peaking on Day -1, followed by an immediate and significant drop on Day 0 and Day +1. This pattern confirms the market's behavior of "pricing in" uncertainty, which then vanishes the moment the new information becomes public.
+                </p>
+            </div>
+    
+            <div class="project-sidebar">
+                <hr> 
+                
+                <h2>4. Key Result: Average Volatility Pattern</h2>
+                <p>
+                    The plot below charts the average 20-day realized volatility for a stock, centered around its earnings announcement (Day 0).
+                </p>
+    
+                <div class="image-viewer-container">
+                    <img src="images/placeholder-volatility-chart.png" alt="Average realized volatility around earnings announcements">
+                    <figcaption>
+                        Fig 1: Average realized volatility from T-30 to T+30 days around an earnings event.
+                    </figcaption>
+                </div>
+    
+                <div class="center-text" style="margin-top: 2rem;">
+                    <a href="https://github.com/archuthanm/volatility-event-study" class="cta-button" target="_blank">View Notebook on GitHub</a>
+                </div>
+            </div>
+    
+        </section> 
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/archuthanm" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/archuthan-mohanathasan-63187424b/" target="_blank">LinkedIn</a>
+                <a href="resume.pdf" target="_blank">Resume (PDF)</a>
+            </div>
+            <p>&copy; 2025 Archuthan Mohanathasan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("mousemove", (e) => {
+          const cursor = document.getElementById("cursor");
+          cursor.style.left = e.clientX + "px";
+          cursor.style.top = e.clientY + "px";
+        });
+    </script>
+
+</body>
+</html>
