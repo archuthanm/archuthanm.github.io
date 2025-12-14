@@ -22,10 +22,18 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700;900&display.swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
+    <div id="cursor"></div>
+    <nav class="container">
+        <a href="home.html" class="nav-logo">Archuthan Mohanathasan</a>
+        <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="nav-contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <main class="container">
 
@@ -84,7 +92,7 @@
                 <h2>3. Analysis: Greeks and Model Efficiency</h2>
                 <p>
                     The study also involved calculating the Option Greeks (Delta, Gamma, Vega, etc.) using pathwise derivative estimators and finite difference methods. These were validated against the analytical Greeks from the Black-Scholes model to ensure accuracy. Efficiency was measured by comparing standard error and computation time, proving that combined variance reduction techniques are vastly superior.
-                </pre>
+                </p>
             </div>
     
             <div class="project-sidebar">
@@ -112,9 +120,24 @@
         </section> 
     </main>
 
-    <div id="footer-placeholder"></div>
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/archuthanm" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/archuthan-mohanathasan-63187424b/" target="_blank">LinkedIn</a>
+                <a href="resume.pdf" target="_blank">Resume (PDF)</a>
+            </div>
+            <p>&copy; 2025 Archuthan Mohanathasan. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <script src="js/main.js" defer></script>
+    <script>
+        document.addEventListener("mousemove", (e) => {
+          const cursor = document.getElementById("cursor");
+          cursor.style.left = e.clientX + "px";
+          cursor.style.top = e.clientY + "px";
+        });
+    </script>
 
 </body>
 </html>
